@@ -13,7 +13,6 @@ body {
     justify-content: center;
 }
 
-
 body::before {
     background-image: url("img/code.png");
     background-repeat: no-repeat;
@@ -27,25 +26,26 @@ body::before {
 }
 
 .container {
-    width: 1200px;
+    width: 100%; /* Cambiado para adaptarse al ancho completo del viewport */
+    max-width: 1200px; /* Establecido un ancho máximo para evitar que el contenido sea demasiado ancho */
+    margin: 0 auto; /* Centrar el contenedor en la pantalla */
     height: 600px;
     display: flex;
+    flex-direction: column; /* Cambiado a columna para mejor adaptabilidad en dispositivos móviles */
     align-items: center;
-    justify-content: space-between;
     border-radius: 24px;
     border: 1px solid #1875E8;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
     background-image: url("img/Ruido.png");
-    background-size: 100% 100%;
+    background-size: cover; /* Cambiado a cover para asegurar que la imagen de fondo se ajuste al contenedor */
     position: relative;
 }
 
-
 .container__contenido {
     display: flex;
+    flex-direction: column; /* Cambiado a columna para mejor adaptabilidad en dispositivos móviles */
     align-items: center;
-    position: absolute;
-    bottom: 0;
+    position: relative; /* Cambiado para mantener la posición relativa en relación con el contenedor */
 }
 
 .container__informaciones {
@@ -91,13 +91,14 @@ body::before {
 
 .container__botones {
     display: flex;
+    flex-direction: column; /* Cambiado a columna para mejor adaptabilidad en dispositivos móviles */
     gap: 2em;
 }
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
-    padding-bottom: 3rem;
+    font-size: 48px; /* Reducido el tamaño del encabezado para dispositivos móviles */
+    padding-bottom: 2rem; /* Reducido el espaciado inferior */
 }
 
 p,
@@ -106,6 +107,25 @@ button {
 }
 
 .texto__parrafo {
-    font-size: 32px;
+    font-size: 24px; /* Reducido el tamaño del texto para dispositivos móviles */
     font-weight: 400;
+}
+
+/* Media Queries para ajustes específicos en tamaños de pantalla diferentes */
+@media only screen and (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Cambiado a fila para pantallas más grandes */
+    }
+
+    .container__contenido {
+        flex-direction: row; /* Cambiado a fila para pantallas más grandes */
+    }
+
+    h1 {
+        font-size: 72px; /* Restaurado el tamaño del encabezado para pantallas más grandes */
+    }
+
+    .texto__parrafo {
+        font-size: 32px; /* Restaurado el tamaño del texto para pantallas más grandes */
+    }
 }
